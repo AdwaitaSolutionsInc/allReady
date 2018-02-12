@@ -1,15 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net46</TargetFramework>
     <AssemblyName>AllReady.NotificationsWebJob</AssemblyName>
+    <OutputType>Exe</OutputType>
     <PackageId>AllReady.NotificationsWebJob</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AllReady.Core\AllReady.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="2.0.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Core" Version="2.0.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
@@ -19,8 +26,9 @@
     <PackageReference Include="WindowsAzure.Storage" Version="7.2.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AllReady.Core\AllReady.Core.csproj" />
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 
 </Project>

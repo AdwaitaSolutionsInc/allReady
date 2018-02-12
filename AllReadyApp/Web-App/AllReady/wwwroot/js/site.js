@@ -97,4 +97,3 @@ function setMapCenterAndZoom(bingMap, microsoftMapsLocations, zoom) {
     }
     bingMap.setView(options);
 }
-//# sourceMappingURL=site.js.map
